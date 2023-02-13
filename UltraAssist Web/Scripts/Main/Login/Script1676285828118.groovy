@@ -19,15 +19,18 @@ import org.openqa.selenium.Keys as Keys
 
 //Open browser with selected URL
 WebUI.openBrowser(GlobalVariable.URL)
-
+//Maximixe browser window
 WebUI.maximizeWindow()
-
+//Webelements
 String username = 'Object Repository/Login WebElement/Page_Login/input_Username_username'
 String password = 'Object Repository/Login WebElement/Page_Login/input_Password_password'
 String loginbtn = 'Object Repository/Login WebElement/Page_Login/input_Password_Button1'
+String dashboard = 'Object Repository/Login WebElement/Page_Login/Page_Dashboard/Dashboard Title'
 //Add UserName
 WebUI.setText(findTestObject(username), GlobalVariable.UserName)
 //Add Password
 WebUI.setText(findTestObject(password), GlobalVariable.Password)
 //Click on LogIn button
 WebUI.click(findTestObject(loginbtn))
+//Assertion to verify
+assert WebUI.verifyElementVisible(findTestObject(dashboard)) == true : 'login failed as dashboard is not present'
